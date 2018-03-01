@@ -1,0 +1,56 @@
+local board = require "main.board.board"
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.current_cell = nil
+	
+	self.board = board.create_board()
+	gui.delete_node(gui.get_node("cell"))
+	
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") then
+		if action.pressed then
+			
+			for _, entity in pairs(self.board) do
+				if gui.pick_node(entity.entity["cell"], action.x, action.y) then
+					self.current_cell = entity
+				end
+			end
+		elseif action.released and self.current_cell then
+			print(self.current_cell.x, self.current_cell.y)
+			local valid = board.valid_move(self.current_cell, action)
+			if valid then
+				board.make_move(self.current_cell, valid)
+				board.reset_input(self.current_cell)
+			else
+				board.reset_input(self.current_cell)
+			end
+			self.current_cell = nil
+		end
+		if self.current_cell then
+			board.active_input(self.current_cell, action)
+		end
+	end
+end
+
+function on_reload(self)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end

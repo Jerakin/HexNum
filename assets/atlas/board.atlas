@@ -1,0 +1,9 @@
+images {
+  image: "/assets/textures/cell.png"
+}
+images {
+  image: "/assets/textures/grid.jpg"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0

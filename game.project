@@ -1,0 +1,29 @@
+[project]
+title = HexNum
+
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /game_config/game.renderc
+
+[input]
+game_binding = /game_config/game.input_bindingc
+
+[display]
+width = 640
+height = 1136
+
+[script]
+shared_state = 1
+
+[ios]
+bundle_identifier = com.jerakin.hexnum
+
+[osx]
+bundle_identifier = com.jerakin.hexnum
+
+[graphics]
+texture_profiles = /game_config/game.texture_profiles
+
+[android]
+package = com.jerakin.hexnum
+
