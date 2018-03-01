@@ -3,11 +3,10 @@ local M = {}
 local size_x = 3
 local size_y = 3
 
-local ROWS = {3, 4, 3, 4, 3}
---local ROWS = {2, 3, 2}
+--local ROWS = {3, 4, 3, 4, 3}
+local ROWS = {2, 3, 2}
 
 local OUTER_RADIUS = 93
---local OUTER_RADIUS = 82
 local INNER_RADIUS = OUTER_RADIUS * 0.866025404
 local node_name = "cell"
 
